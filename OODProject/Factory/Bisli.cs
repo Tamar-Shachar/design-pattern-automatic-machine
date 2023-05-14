@@ -1,7 +1,16 @@
 ﻿namespace OODProject.Factory;
 
-internal class Bisli : Snake
+internal class Bisli : Snack
 {
-    private static double price;
-    private static int amount;
+    readonly static double price = 4.5;
+    static int amount=5;
+
+    public Bisli()
+    {
+        amount -= 1;
+    }
+    public override double GetPrice()
+    {
+        return price;
+    }
 }

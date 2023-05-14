@@ -8,5 +8,12 @@ namespace OODProject.Builder.Decorator
 {
     internal class HotCup:HotDrink
     {
+        
+        static int amount = 80;
+        public HotCup()
+        {
+            amount -= 1;
+        }
+        
     }
 }

@@ -2,7 +2,16 @@
 {
     internal class Orange : Drink
     {
-        private static double price;
-        private static int amount;
+        readonly static double price = 8;
+        static int amount =59;
+        public Orange()
+        {
+            amount -= 1;
+
+        }
+        public override double GetPrice()
+        {
+            return price;
+        }
     }
 }

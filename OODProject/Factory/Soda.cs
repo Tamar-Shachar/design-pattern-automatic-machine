@@ -2,6 +2,14 @@
 
 internal class Soda : Drink
 {
-    private static double price;
-    private static int amount;
+    readonly static double price = 5.5;
+    static int amount = 6;
+    public Soda()
+    {
+        amount -= 1;
+    }
+    public override double GetPrice()
+    {
+        return price;
+    }
 }

@@ -1,10 +1,10 @@
 ﻿namespace OODProject.Factory;
 
-internal class GetSnake : Creator
+internal class GetSnack : Creator
 {
-    public override Product GetProduct(string product)
+    public override Product GetProduct(params string[] products)
     {
-        switch (product)
+        switch (products[0])
         {
             case nameof(Bisli):
                 return new Bisli();

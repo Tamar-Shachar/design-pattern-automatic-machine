@@ -1,7 +1,15 @@
 ﻿namespace OODProject.Factory;
 
-internal class Chips : Snake
+internal class Chips : Snack
 {
-    private static double price;
-    private static int amount;
+    readonly static double price = 5;
+     static int amount =80;
+    public Chips()
+    {
+        amount -= 1;
+    }
+    public override double GetPrice()
+    {
+        return price;
+    }
 }

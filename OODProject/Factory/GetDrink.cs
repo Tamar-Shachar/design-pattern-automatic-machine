@@ -2,9 +2,9 @@
 
 internal class GetDrink : Creator
 {
-    public override Product GetProduct(string product)
+    public override Product GetProduct(params string[] products)
     {
-        switch (product)
+        switch (products[0])
         {
             case nameof(Orange):
                 return new Orange();
