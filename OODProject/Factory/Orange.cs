@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OODProject.Builder
+﻿namespace OODProject.Factory
 {
-    internal class Orange
+    internal class Orange : Drink
     {
+        private static double price;
+        private static int amount;
     }
 }

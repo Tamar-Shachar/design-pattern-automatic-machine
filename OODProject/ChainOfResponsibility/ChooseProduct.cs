@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OODProject.Observer;
 
-namespace OODProject.ChainOfResponsibility
+namespace OODProject.ChainOfResponsibility;
+
+internal class ChooseProduct : BaseHandler
 {
-    internal class ChooseProduct:BaseHandler
+    public virtual IItem Handel(IItem item)
     {
+        return null;
     }
 }

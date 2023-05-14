@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OODProject.Factory;
 
-namespace OODProject.Builder
+internal class Cola : Drink
 {
-    internal class Cola
-    {
-    }
+    private static double price;
+    private static int amount;
 }

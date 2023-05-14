@@ -1,12 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OODProject.Singleton;
 
-namespace OODProject.Singleton
+internal class AutomaticMachine
 {
-    internal class AutomaticMachine
+    private AutomaticMachine()
     {
+
+    }
+    private static AutomaticMachine instance;
+    static object locker = new();
+    public static AutomaticMachine GetInstance()
+    {
+        if (instance == null)
+        {
+            lock (locker)
+            {
+                instance = new AutomaticMachine();
+            }
+        }
+        return instance;
+    }
+    public void StartShpping()
+    {
+
     }
 }

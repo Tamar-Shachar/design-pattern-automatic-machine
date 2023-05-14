@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OODProject.Observer;
 
-namespace OODProject.Builder
+namespace OODProject.Factory
 {
-    internal abstract class Product
+    internal abstract class Product : IItem
     {
+
     }
 }

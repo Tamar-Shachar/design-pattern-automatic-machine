@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OODProject.Factory;
 
-namespace OODProject.Builder
+internal class GetSnake : Creator
 {
-    internal class GetSnake:Creator
+    public override Product GetProduct(string product)
     {
+        switch (product)
+        {
+            case nameof(Bisli):
+                return new Bisli();
+            case nameof(Chips):
+                return new Chips();
+            case nameof(Bamba):
+                return new Bamba();
+            default:
+                return null;
+        }
     }
 }

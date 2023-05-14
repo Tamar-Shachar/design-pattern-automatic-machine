@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OODProject.Factory;
 
-namespace OODProject.Builder
+internal class GetDrink : Creator
 {
-    internal class GetDrink:Creator
+    public override Product GetProduct(string product)
     {
+        switch (product)
+        {
+            case nameof(Orange):
+                return new Orange();
+            case nameof(Soda):
+                return new Soda();
+            case nameof(Cola):
+                return new Cola();
+            default:
+                return null;
+        }
     }
 }

@@ -1,12 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OODProject.Observer;
 
-namespace OODProject.ChainOfResponsibility
+namespace OODProject.ChainOfResponsibility;
+
+internal abstract class BaseHandler : IHandler
 {
-    internal abstract class BaseHandler:IHandler
+    private IHandler nextHandler;
+    public virtual IItem Handel(IItem item)
     {
+        if (this.Handel != null)
+        {
+            return this.nextHandler.Handel(item);
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public IHandler SetNext(IHandler handler)
+    {
+        this.nextHandler = handler;
+        return handler;
     }
 }

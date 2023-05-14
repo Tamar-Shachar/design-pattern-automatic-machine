@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace OODProject.Builder.Decorator
 {
-    internal class Coffee
+    internal class Coffee : Ingredient
     {
+        public Coffee(HotDrink wrappee) : base(wrappee)
+        {
+        }
     }
 }

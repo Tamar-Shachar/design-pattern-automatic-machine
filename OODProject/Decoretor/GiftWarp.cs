@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OODProject.Decoretor;
 
-namespace OODProject.Decoretor
+internal class GiftWarp : Additions
 {
-    internal class GiftWarp
-    {
-    }
 }

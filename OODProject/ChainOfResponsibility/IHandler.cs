@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OODProject.Observer;
 
-namespace OODProject.ChainOfResponsibility
+namespace OODProject.ChainOfResponsibility;
+
+internal interface IHandler
 {
-    internal interface IHandler
-    {
-    }
+    IHandler SetNext(IHandler handler);
+    IItem Handel(IItem item);
 }
