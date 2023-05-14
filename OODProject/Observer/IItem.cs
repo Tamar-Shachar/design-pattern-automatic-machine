@@ -2,4 +2,5 @@
 
 internal interface IItem
 {
+    public int GetAmount();
 }

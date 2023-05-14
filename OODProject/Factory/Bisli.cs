@@ -13,4 +13,8 @@ internal class Bisli : Snack
     {
         return price;
     }
+    public override int GetAmount()
+    {
+        return amount;
+    }
 }

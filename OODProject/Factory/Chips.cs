@@ -12,4 +12,8 @@ internal class Chips : Snack
     {
         return price;
     }
+    public override int GetAmount()
+    {
+        return amount;
+    }
 }

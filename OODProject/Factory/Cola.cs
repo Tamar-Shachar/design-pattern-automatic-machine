@@ -12,4 +12,8 @@ internal class Cola : Drink
     {
         return price;
     }
+    public override int GetAmount()
+    {
+        return amount;
+    }
 }

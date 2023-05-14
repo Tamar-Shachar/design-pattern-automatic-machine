@@ -12,4 +12,8 @@ internal class Bamba : Snack
     {
         return price;
     }
+    public override int GetAmount()
+    {
+        return amount;
+    }
 }

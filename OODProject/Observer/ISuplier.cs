@@ -2,4 +2,5 @@
 
 internal interface ISuplier
 {
+    public void Update(IItem item);
 }

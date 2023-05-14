@@ -60,9 +60,11 @@ internal class Payment : BaseHandler
             form1.Controls.Remove(okButton);
             form1.Controls.Remove(label2);
             form1.Controls.Remove(btn);
-            goto finished;
+            
+           /* goto finished;*/
         }
-        finished: return base.Handel(item);
+        Thread.Sleep(15);
+        /*finished:*/ return base.Handel(item);
 
 
 

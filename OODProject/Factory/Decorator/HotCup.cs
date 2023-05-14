@@ -14,6 +14,10 @@ namespace OODProject.Builder.Decorator
         {
             amount -= 1;
         }
-        
+        public override int GetAmount()
+        {
+            return amount;
+        }
+
     }
 }
