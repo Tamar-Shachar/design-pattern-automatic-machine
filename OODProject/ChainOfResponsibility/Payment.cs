@@ -6,10 +6,9 @@ internal class Payment : BaseHandler
 {
     public override async Task<IItem> Handel(IItem item)
     {
-        bool b = false;
         double price = ((Product)item).GetPrice();
         Form form1 = Application.OpenForms["Form1"];
-        ManualResetEvent mre = new(false);
+        //ManualResetEvent mre = new(false);
         Label label = new Label();
         label.Text = $"The amount to be paid is: {price}₪";
         label.Size = new Size(800, 50);
@@ -42,32 +41,18 @@ internal class Payment : BaseHandler
             label.Enabled = false;
             amount.Enabled = false;
             okButton.Enabled = false;
-         /*   b = true;*/
         };
 
         using (SemaphoreSlim semaphore = new SemaphoreSlim(0, 1))
         {
-            void OnClick(object sender, EventArgs e) => semaphore.Release();
+            void OnClick(object sender, EventArgs e) => semaphore.Release(1);
             okButton.Click += OnClick;
-            /*while(b == false)
-            {*/
-                await semaphore.WaitAsync();
-            /*}*/
-            
+            await semaphore.WaitAsync();
             okButton.Click -= OnClick;
         }
         return base.Handel(item).Result;
     }
 
 
-    /*private async Task okButton_Click(object sender, EventArgs e)
-        {
-             await Task.Delay(5000);
-        }
-
-        private async void MyForm_Shown(object sender, EventArgs e)
-        {
-            // now if the program reaches this line, it means that we can use the ButtonData.
-        }*/
 }
 

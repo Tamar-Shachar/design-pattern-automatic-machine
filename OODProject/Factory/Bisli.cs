@@ -37,9 +37,6 @@ internal class Bisli : Snack
             suplier.Update(typeof(Bisli));
         }
     }
-    public string GetName()
-    {
-        return base.GetName() + " " + nameof(this.GetType);
-    }
+
 
 }

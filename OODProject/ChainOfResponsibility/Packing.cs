@@ -33,7 +33,6 @@ internal class Packing : BaseHandler
             Btn1.Click -= OnClick;
         }
 
-        //await Task.Delay(5000);
         return base.Handel(item).Result;
     }
 }

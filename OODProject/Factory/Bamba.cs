@@ -19,10 +19,6 @@ internal class Bamba : Snack
     {
         return amount;
     }
-    public string GetName()
-    {
-        return base.GetName() + " " + nameof(this.GetType);
-    }
     public static void Attach(ISuplier suplier)
     {
         supliers.Add(suplier);

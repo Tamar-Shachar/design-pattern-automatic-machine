@@ -38,9 +38,5 @@ namespace OODProject.Factory
                 suplier.Update(typeof(Orange));
             }
         }
-        public string GetName()
-        {
-            return base.GetName() + " " + nameof(this.GetType);
-        }
     }
 }

@@ -11,6 +11,7 @@ internal class Additions : IItem
     }
     public int GetAmount()
     {
-        throw new NotImplementedException();
+        return 0;
     }
+
 }

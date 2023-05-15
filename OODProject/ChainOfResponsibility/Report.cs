@@ -8,8 +8,7 @@ internal class Report : BaseHandler
    
     public override async Task<IItem> Handel(IItem item)
     {
-        SaveTxtReport.AddReport(item);
-        /*await Task.Delay(5000);*/
+        ReportTxtSaver.AddReport(item);
         return null;
     }
 }

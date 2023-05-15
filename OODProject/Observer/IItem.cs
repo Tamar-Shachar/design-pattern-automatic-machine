@@ -7,5 +7,4 @@ internal interface IItem
     static void Attach(ISuplier suplier) { }
     static void Detach(ISuplier suplier) { }
     static void Notify() { }
-    static string GetName() { return ""; }
 }

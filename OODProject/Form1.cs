@@ -19,27 +19,20 @@ public partial class Form1 : Form
         warp_cb.Hide();
 
 
-        TaskSchedulerA.Instance.ScheduleTask(16, 27, 00,
-    () =>
-    {
-        SaveTxtReport.WriteReport();
-    });
-
-
-        /*   TaskScheduler.Instance.ScheduleTask(11, 52, 0.00417,
-       () =>
-       {
-           Debug.WriteLine("task1: " + DateTime.Now);
-           //here write the code that you want to schedule
-       });*/
-
+        /* End of day:
+          TaskSchedulerA.Instance.ScheduleTask(00, 00, 00,
+             () => { ReportTxtSaver.WriteReport(); });*/
+        /*TaskSchedulerA.Instance.ScheduleTask(DateTime.Now.Hour, DateTime.Now.Second + 1, 00,
+            () => { ReportTxtSaver.WriteReport(); });*/
+        TaskSchedulerA.Instance.ScheduleTask(18,42,30,
+            () => { ReportTxtSaver.WriteReport(); });
     }
 
 
 
 
     AutomaticMachine machine;
-    string[] snackArr = { "Bisli", "Cips", "Bamba" };
+    string[] snackArr = { "Bisli", "Chips", "Bamba" };
     string[] hotDrinkArr = { "Coffe", "Shoko", "Tea", "Sugar", "HotWatter", "Milk" };
     string[] drinkArr = { "Orange", "Soda", "Cola" };
     Button hotDrink = new Button();

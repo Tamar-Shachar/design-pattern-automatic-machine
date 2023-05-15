@@ -35,8 +35,5 @@ internal class Soda : Drink
             suplier.Update(typeof(Soda));
         }
     }
-    public string GetName()
-    {
-        return base.GetName() + " " + nameof(this.GetType);
-    }
+
 }

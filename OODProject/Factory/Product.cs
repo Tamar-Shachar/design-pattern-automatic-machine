@@ -29,9 +29,5 @@ namespace OODProject.Factory
         {
 
         }
-        public string GetName()
-        {
-            return "";
-        }
     }
 }

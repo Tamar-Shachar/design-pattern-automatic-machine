@@ -36,8 +36,5 @@ internal class Cola : Drink
         }
 
     }
-    public string GetName()
-    {
-        return base.GetName() + " " + nameof(this.GetType);
-    }
+
 }

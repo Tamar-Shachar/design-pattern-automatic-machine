@@ -35,8 +35,4 @@ internal class Chips : Snack
             suplier.Update(typeof(Chips));
         }
     }
-    public string GetName()
-    {
-        return base.GetName() + " " + nameof(this.GetType);
-    }
 }
