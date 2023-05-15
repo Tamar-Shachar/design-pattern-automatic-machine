@@ -31,7 +31,6 @@ internal class Payment : BaseHandler
         okButton.Location = new Point(530, 200);
         form1.Controls.Add(okButton);
         Label label2 = new Label();
-
         okButton.Click += (sender, e) =>
         {
             label2.Text = $"surplus: {(Int32.Parse(amount.Text)) - price}₪";
@@ -39,19 +38,29 @@ internal class Payment : BaseHandler
             label2.Location = new Point(420, 280);
             label2.Font = new Font("Arial", 12);
             form1.Controls.Add(label2);
-               
+
             label.Enabled = false;
             amount.Enabled = false;
             okButton.Enabled = false;
+         /*   b = true;*/
         };
-        object sender1;
-        EventArgs e1;
-        await Task.Delay(5000);
-        /*await okButton_Click(, e1);*/
+
+        using (SemaphoreSlim semaphore = new SemaphoreSlim(0, 1))
+        {
+            void OnClick(object sender, EventArgs e) => semaphore.Release();
+            okButton.Click += OnClick;
+            /*while(b == false)
+            {*/
+                await semaphore.WaitAsync();
+            /*}*/
+            
+            okButton.Click -= OnClick;
+        }
         return base.Handel(item).Result;
     }
-    
-    private async Task okButton_Click(object sender, EventArgs e)
+
+
+    /*private async Task okButton_Click(object sender, EventArgs e)
         {
              await Task.Delay(5000);
         }
@@ -59,6 +68,6 @@ internal class Payment : BaseHandler
         private async void MyForm_Shown(object sender, EventArgs e)
         {
             // now if the program reaches this line, it means that we can use the ButtonData.
-        }
+        }*/
 }
 

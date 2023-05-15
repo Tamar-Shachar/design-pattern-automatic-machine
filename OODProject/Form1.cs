@@ -1,6 +1,7 @@
 using OODProject.Factory;
 using OODProject.Observer;
 using OODProject.Singleton;
+using OODProject.TamplateMethod;
 
 namespace OODProject;
 
@@ -16,7 +17,26 @@ public partial class Form1 : Form
         Orange.Attach(suplierB);
         bag_cb.Hide();
         warp_cb.Hide();
+
+
+        TaskSchedulerA.Instance.ScheduleTask(16, 27, 00,
+    () =>
+    {
+        SaveTxtReport.WriteReport();
+    });
+
+
+        /*   TaskScheduler.Instance.ScheduleTask(11, 52, 0.00417,
+       () =>
+       {
+           Debug.WriteLine("task1: " + DateTime.Now);
+           //here write the code that you want to schedule
+       });*/
+
     }
+
+
+
 
     AutomaticMachine machine;
     string[] snackArr = { "Bisli", "Cips", "Bamba" };
@@ -61,7 +81,7 @@ public partial class Form1 : Form
             snack.Enabled = false;
             hotDrink.Enabled = true;
         };
-   
+
 
         this.Controls.Add(drink);
         drink.Text = "Drink";
@@ -212,3 +232,4 @@ public partial class Form1 : Form
     }
 
 }
+

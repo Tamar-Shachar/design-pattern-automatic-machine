@@ -25,7 +25,15 @@ internal class Packing : BaseHandler
         Btn2.Location = new Point(550, 600);
         form1.Controls.Add(Btn2);
 
-        await Task.Delay(5000);
+        using (SemaphoreSlim semaphore = new SemaphoreSlim(0, 1))
+        {
+            void OnClick(object sender, EventArgs e) => semaphore.Release();
+            Btn1.Click += OnClick;
+            await semaphore.WaitAsync();
+            Btn1.Click -= OnClick;
+        }
+
+        //await Task.Delay(5000);
         return base.Handel(item).Result;
     }
 }
