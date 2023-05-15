@@ -14,5 +14,9 @@ namespace OODProject.Builder.Decorator
         {
             return price;
         }
+        public string GetName()
+        {
+            return base.GetName() + " " + nameof(this.GetType);
+        }
     }
 }

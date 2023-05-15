@@ -1,9 +1,11 @@
-﻿namespace OODProject.Decoretor;
+﻿using OODProject.Observer;
+
+namespace OODProject.Decoretor;
 
 internal class Bag : Additions
 {
     private static int amount;
-    public Bag()
+    public Bag(IItem item):base(item)
     {
         amount -= 1;
     }

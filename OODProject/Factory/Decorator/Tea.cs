@@ -11,5 +11,9 @@ namespace OODProject.Builder.Decorator
         public Tea(HotDrink wrappee) : base(wrappee)
         {
         }
+        public string GetName()
+        {
+            return base.GetName() + " " + nameof(this.GetType);
+        }
     }
 }

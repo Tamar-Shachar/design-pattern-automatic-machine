@@ -1,3 +1,5 @@
+using OODProject.Factory;
+using OODProject.Observer;
 using OODProject.Singleton;
 
 namespace OODProject;
@@ -8,7 +10,14 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
+        SuplierA suplierA = new SuplierA();
+        Bisli.Attach(suplierA);
+        SuplierB suplierB = new SuplierB();
+        Orange.Attach(suplierB);
+        bag_cb.Hide();
+        warp_cb.Hide();
     }
+
     AutomaticMachine machine;
     string[] snackArr = { "Bisli", "Cips", "Bamba" };
     string[] hotDrinkArr = { "Coffe", "Shoko", "Tea", "Sugar", "HotWatter", "Milk" };
@@ -28,7 +37,6 @@ public partial class Form1 : Form
         string product = "";
         List<string> ingredients = new List<string>();
         this.Controls.Remove(StartShoppingBtn);
-
         #region create buttons
 
         this.Controls.Add(snack);
@@ -188,10 +196,7 @@ public partial class Form1 : Form
         this.Controls.Remove(snack);
         this.Controls.Remove(drink);
         this.Controls.Remove(hotDrink);
-
-
     }
-
     private int GetMaxLen()
     {
         if (snackArr.Length > drinkArr.Length)
@@ -205,4 +210,5 @@ public partial class Form1 : Form
             drinkArr.Length :
             hotDrinkArr.Length;
     }
+
 }

@@ -5,5 +5,5 @@ namespace OODProject.ChainOfResponsibility;
 internal interface IHandler
 {
     IHandler SetNext(IHandler handler);
-    IItem Handel(IItem item);
+    Task<IItem> Handel(IItem item);
 }

@@ -2,5 +2,10 @@
 
 internal interface IItem
 {
-    public int GetAmount();
+
+    static int GetAmount() { return 0; }
+    static void Attach(ISuplier suplier) { }
+    static void Detach(ISuplier suplier) { }
+    static void Notify() { }
+    static string GetName() { return ""; }
 }

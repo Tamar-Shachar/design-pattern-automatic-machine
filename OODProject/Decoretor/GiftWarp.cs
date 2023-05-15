@@ -1,9 +1,11 @@
-﻿namespace OODProject.Decoretor;
+﻿using OODProject.Observer;
+
+namespace OODProject.Decoretor;
 
 internal class GiftWarp : Additions
 {
     private static int amount;
-    public GiftWarp()
+    public GiftWarp(IItem item):base(item)
     {
         amount -= 1;
     }

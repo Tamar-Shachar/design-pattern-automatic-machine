@@ -5,7 +5,7 @@ namespace OODProject.ChainOfResponsibility;
 internal abstract class BaseHandler : IHandler
 {
     private IHandler nextHandler;
-    public virtual IItem Handel(IItem item)
+    public virtual Task<IItem> Handel(IItem item)
     {
         if (this.Handel != null)
         {
@@ -13,6 +13,8 @@ internal abstract class BaseHandler : IHandler
         }
         else
         {
+            /*Form form1 = Application.OpenForms["Form1"];
+            form1.Controls["StartShoppingBtn"].Click;*/
             return null;
         }
     }

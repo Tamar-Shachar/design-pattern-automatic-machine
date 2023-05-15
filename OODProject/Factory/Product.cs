@@ -4,7 +4,18 @@ namespace OODProject.Factory
 {
     internal /*abstract*/ class Product : IItem
     {
-        public virtual int GetAmount()
+
+        public static void Attach(ISuplier suplier)
+        {
+
+        }
+
+        public static void Detach(ISuplier suplier)
+        {
+
+        }
+
+        public static int GetAmount()
         {
             return 0;
         }
@@ -12,6 +23,15 @@ namespace OODProject.Factory
         public virtual double GetPrice()
         {
             return 0;
+        }
+
+        public void Notify()
+        {
+
+        }
+        public string GetName()
+        {
+            return "";
         }
     }
 }

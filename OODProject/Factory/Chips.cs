@@ -1,9 +1,12 @@
-﻿namespace OODProject.Factory;
+﻿using OODProject.Observer;
+
+namespace OODProject.Factory;
 
 internal class Chips : Snack
 {
     readonly static double price = 5;
-     static int amount =80;
+    static int amount = 80;
+    static List<ISuplier> supliers = new List<ISuplier>();
     public Chips()
     {
         amount -= 1;
@@ -12,8 +15,28 @@ internal class Chips : Snack
     {
         return price;
     }
-    public override int GetAmount()
+    public static int GetAmount()
     {
         return amount;
+    }
+    public static void Attach(ISuplier suplier)
+    {
+        supliers.Add(suplier);
+    }
+
+    public static void Detach(ISuplier suplier)
+    {
+        supliers.Remove(suplier);
+    }
+    public static void Notify()
+    {
+        foreach (var suplier in supliers)
+        {
+            suplier.Update(typeof(Chips));
+        }
+    }
+    public string GetName()
+    {
+        return base.GetName() + " " + nameof(this.GetType);
     }
 }

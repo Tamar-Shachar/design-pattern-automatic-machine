@@ -42,12 +42,13 @@ internal class AutomaticMachine
         }
         var item = creator.GetProduct(products);
         Payment h1 = new Payment();
-        GetWarp h2 = new GetWarp();
-        GetBag h3 = new GetBag();
+        Warp h2 = new Warp();
+        Packing h3 = new Packing();
         Report h4 = new Report();
         h1.SetNext(h2);
         h2.SetNext(h3);
         h3.SetNext(h4);
+        h4.SetNext(null);
         h1.Handel(item);
     }
 }
