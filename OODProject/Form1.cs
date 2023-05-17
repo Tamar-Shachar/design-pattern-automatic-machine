@@ -193,7 +193,7 @@ public partial class Form1 : Form
     }
     private void Payment(string t, params string[] p)
     {
-        machine.StartShpping(t, p);
+        
         foreach (var item in snackArr)
         {
             this.Controls.RemoveByKey(item);
@@ -209,6 +209,8 @@ public partial class Form1 : Form
         this.Controls.Remove(snack);
         this.Controls.Remove(drink);
         this.Controls.Remove(hotDrink);
+        this.Controls.Remove(pay);
+        machine.StartShpping(t, p);
     }
     private int GetMaxLen()
     {

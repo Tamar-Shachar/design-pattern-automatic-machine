@@ -32,15 +32,24 @@ internal class Payment : BaseHandler
         Label label2 = new Label();
         okButton.Click += (sender, e) =>
         {
-            label2.Text = $"surplus: {(Int32.Parse(amount.Text)) - price}₪";
             label2.Size = new Size(800, 50);
             label2.Location = new Point(420, 280);
             label2.Font = new Font("Arial", 12);
-            form1.Controls.Add(label2);
+            if (price <= (Int32.Parse(amount.Text)))
+            {
+                label2.Text = $"surplus: {(Int32.Parse(amount.Text)) - price}₪";
+                form1.Controls.Add(label2);
+                label.Enabled = false;
+                amount.Enabled = false;
+                okButton.Enabled = false;
+            }
+            else
+            {
+                label2.Text = "The money is not enough, please enter again";
+                form1.Controls.Add(label2);
 
-            label.Enabled = false;
-            amount.Enabled = false;
-            okButton.Enabled = false;
+            }
+
         };
 
         using (SemaphoreSlim semaphore = new SemaphoreSlim(0, 1))
@@ -49,7 +58,10 @@ internal class Payment : BaseHandler
             okButton.Click += OnClick;
             await semaphore.WaitAsync();
             okButton.Click -= OnClick;
+
         }
+
+
         return base.Handel(item).Result;
     }
 

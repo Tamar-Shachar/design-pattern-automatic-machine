@@ -26,10 +26,8 @@ internal class Warp : BaseHandler
         Btn2.Enabled = true;
         form1.Controls.Add(Btn2);
 
-        CheckBox c = new CheckBox();
-        c.Text = "jhh";
 
-        form1.Controls.Add(c);
+
 
         using (SemaphoreSlim semaphore = new SemaphoreSlim(0, 1))
         {
