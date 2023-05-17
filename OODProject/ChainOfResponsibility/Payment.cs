@@ -56,11 +56,14 @@ internal class Payment : BaseHandler
         {
             mre.WaitOne();
             mre.Reset();
-            form1.Controls.Remove(okButton);
-            form1.Controls.Remove(label);
-            form1.Controls.Remove(label2);
-            form1.Controls.Remove(amount);
+
         });
+        Task.Run(() => {
+            form1.Controls.Remove(okButton);
+        form1.Controls.Remove(label);
+        form1.Controls.Remove(label2);
+        form1.Controls.Remove(amount); }).Wait();
+        
 
         return base.Handel(item).Result;
     }
