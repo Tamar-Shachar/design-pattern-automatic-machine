@@ -4,11 +4,11 @@ using OODProject.Observer;
 namespace OODProject.ChainOfResponsibility;
 internal class Payment : BaseHandler
 {
+    private ManualResetEvent mre = new ManualResetEvent(false);
     public override async Task<IItem> Handel(IItem item)
     {
         double price = ((Product)item).GetPrice();
         Form form1 = Application.OpenForms["Form1"];
-        //ManualResetEvent mre = new(false);
         Label label = new Label();
         label.Text = $"The amount to be paid is: {price}₪";
         label.Size = new Size(800, 50);
@@ -30,7 +30,7 @@ internal class Payment : BaseHandler
         okButton.Location = new Point(530, 200);
         form1.Controls.Add(okButton);
         Label label2 = new Label();
-        okButton.Click += (sender, e) =>
+        okButton.Click += async (sender, e) =>
         {
             label2.Size = new Size(800, 50);
             label2.Location = new Point(420, 280);
@@ -42,29 +42,28 @@ internal class Payment : BaseHandler
                 label.Enabled = false;
                 amount.Enabled = false;
                 okButton.Enabled = false;
+                mre.Set();
             }
             else
             {
                 label2.Text = "The money is not enough, please enter again";
+                amount.Text = "";
                 form1.Controls.Add(label2);
-
             }
-
         };
 
-        using (SemaphoreSlim semaphore = new SemaphoreSlim(0, 1))
+        await Task.Run(() =>
         {
-            void OnClick(object sender, EventArgs e) => semaphore.Release(1);
-            okButton.Click += OnClick;
-            await semaphore.WaitAsync();
-            okButton.Click -= OnClick;
-
-        }
-
+            mre.WaitOne();
+            mre.Reset();
+            form1.Controls.Remove(okButton);
+            form1.Controls.Remove(label);
+            form1.Controls.Remove(label2);
+            form1.Controls.Remove(amount);
+        });
 
         return base.Handel(item).Result;
     }
-
 
 }
 

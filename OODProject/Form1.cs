@@ -8,6 +8,7 @@ namespace OODProject;
 
 public partial class Form1 : Form
 {
+    public ManualResetEvent mre { get; }= new ManualResetEvent(false);
     public Form1()
     {
         InitializeComponent();

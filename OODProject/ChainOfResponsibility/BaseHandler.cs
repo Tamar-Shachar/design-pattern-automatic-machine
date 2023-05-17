@@ -13,8 +13,6 @@ internal abstract class BaseHandler : IHandler
         }
         else
         {
-            Form form1 = Application.OpenForms["Form1"];
-            //form1.Controls.ContainsKey("jj").TryFormat()
             return null;
         }
     }
