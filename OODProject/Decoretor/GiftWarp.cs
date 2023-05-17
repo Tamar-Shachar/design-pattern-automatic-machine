@@ -14,4 +14,9 @@ internal class GiftWarp : Additions
     {
         return amount;
     }
+
+    public override string ToString()
+    {
+        return base.ToString() + $" {(this.GetType().Name)}";
+    }
 }

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OODProject.Builder.Decorator;
 
-namespace OODProject.Builder.Decorator
+internal class HotWatter : Ingredient
 {
-    internal class HotWatter : Ingredient
+    public HotWatter(HotDrink wrappee) : base(wrappee)
     {
-        public HotWatter(HotDrink wrappee) : base(wrappee)
-        {
-        }
+    }
+    public override string ToString()
+    {
+        return base.ToString() + $" {(this.GetType().Name)}";
     }
 }

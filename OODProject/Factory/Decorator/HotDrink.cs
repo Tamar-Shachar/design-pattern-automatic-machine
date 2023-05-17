@@ -1,19 +1,16 @@
 ﻿using OODProject.Factory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OODProject.Builder.Decorator
+namespace OODProject.Builder.Decorator;
+
+internal abstract class HotDrink : Product
 {
-    internal abstract class HotDrink:Product
+    static double price = 10;
+    public override double GetPrice()
     {
-        static double price = 10;
-        public override double GetPrice()
-        {
-            return price;
-        }
-
+        return price;
+    }
+    public override string ToString()
+    {
+        return base.ToString() + $" {(this.GetType().Name)}";
     }
 }

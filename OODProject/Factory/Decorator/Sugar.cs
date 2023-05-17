@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OODProject.Builder.Decorator;
 
-namespace OODProject.Builder.Decorator
+internal class Sugar : Ingredient
 {
-    internal class Sugar : Ingredient
+    public Sugar(HotDrink wrappee) : base(wrappee)
     {
-        public Sugar(HotDrink wrappee) : base(wrappee)
-        {
-        }
-
+    }
+    public override string ToString()
+    {
+        return base.ToString() + $" {(this.GetType().Name)}";
     }
 }

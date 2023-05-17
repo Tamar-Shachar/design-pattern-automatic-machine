@@ -25,7 +25,7 @@ public partial class Form1 : Form
              () => { ReportTxtSaver.WriteReport(); });*/
         /*TaskSchedulerA.Instance.ScheduleTask(DateTime.Now.Hour, DateTime.Now.Second + 1, 00,
             () => { ReportTxtSaver.WriteReport(); });*/
-        TaskSchedulerA.Instance.ScheduleTask(18,42,30,
+        TaskSchedulerA.Instance.ScheduleTask(00,55,00,
             () => { ReportTxtSaver.WriteReport(); });
     }
 
@@ -34,7 +34,7 @@ public partial class Form1 : Form
 
     AutomaticMachine machine;
     string[] snackArr = { "Bisli", "Chips", "Bamba" };
-    string[] hotDrinkArr = { "Coffe", "Shoko", "Tea", "Sugar", "HotWatter", "Milk" };
+    string[] hotDrinkArr = { "Coffee", "Shoko", "Tea", "Sugar", "HotWatter", "Milk" };
     string[] drinkArr = { "Orange", "Soda", "Cola" };
     Button hotDrink = new Button();
     Button snack = new Button();

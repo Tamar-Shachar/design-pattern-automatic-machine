@@ -2,9 +2,9 @@
 
 namespace OODProject.Decoretor;
 
-internal class Additions : IItem
+internal abstract class Additions : IItem
 {
-    private IItem item;
+    protected IItem item;
     public Additions(IItem item)
     {
         this.item = item;
@@ -12,6 +12,10 @@ internal class Additions : IItem
     public int GetAmount()
     {
         return 0;
+    }
+    public override string ToString()
+    {
+        return $"{item.ToString()}";
     }
 
 }

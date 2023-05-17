@@ -1,19 +1,14 @@
-﻿using OODProject.Factory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace OODProject.Builder.Decorator;
 
-namespace OODProject.Builder.Decorator
+internal abstract class Ingredient : HotDrink
 {
-    internal class Ingredient:HotDrink
+    protected HotDrink wrappee;
+    public Ingredient(HotDrink wrappee)
     {
-        private HotDrink wrappee;
-        public Ingredient(HotDrink wrappee)
-        {
-            this.wrappee = wrappee;
-        }
-
+        this.wrappee = wrappee;
+    }
+    public override string ToString()
+    {
+        return $"{wrappee.ToString()}";
     }
 }

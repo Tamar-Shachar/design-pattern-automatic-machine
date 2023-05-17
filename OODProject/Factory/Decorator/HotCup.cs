@@ -31,5 +31,9 @@ internal class HotCup : HotDrink
             suplier.Update(typeof(HotCup));
         }
     }
+    public override string ToString()
+    {
+        return $" {(this.GetType().Name)}";
+    }
 }
 

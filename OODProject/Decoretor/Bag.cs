@@ -14,4 +14,8 @@ internal class Bag : Additions
     {
         return amount;
     }
+    public override string ToString()
+    {
+        return base.ToString() + $" {(this.GetType().Name)}";
+    }
 }

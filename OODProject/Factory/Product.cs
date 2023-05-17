@@ -29,6 +29,9 @@ namespace OODProject.Factory
         {
 
         }
-
+        public override string ToString()
+        {
+            return $" {(this.GetType().Name)}";
+        }
     }
 }

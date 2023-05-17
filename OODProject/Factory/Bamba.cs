@@ -35,8 +35,5 @@ internal class Bamba : Snack
             suplier.Update(typeof(Bamba));
         }
     }
-    public override string ToString()
-    {
-        return base.ToString()+"  ";
-    }
+    
 }
