@@ -1,3 +1,4 @@
+using OODProject.Builder.Decorator;
 using OODProject.Factory;
 using OODProject.Observer;
 using OODProject.Singleton;
@@ -33,9 +34,9 @@ public partial class Form1 : Form
 
 
     AutomaticMachine machine;
-    string[] snackArr = { "Bisli", "Chips", "Bamba" };
-    string[] hotDrinkArr = { "Coffee", "Shoko", "Tea", "Sugar", "HotWatter", "Milk" };
-    string[] drinkArr = { "Orange", "Soda", "Cola" };
+    string[] snackArr = { nameof(Bisli), nameof(Chips), nameof(Bamba) };
+    string[] hotDrinkArr = { nameof(Coffee), nameof(Shoko), nameof(Tea), nameof(Sugar), nameof(HotWatter), nameof(Milk) };
+    string[] drinkArr = { nameof(Orange), nameof(Soda), nameof(Cola) };
     Button hotDrink = new Button();
     Button snack = new Button();
     Button drink = new Button();
