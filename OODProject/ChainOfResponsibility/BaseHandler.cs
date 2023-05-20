@@ -16,7 +16,6 @@ internal abstract class BaseHandler : IHandler
             //Application.Restart();
             Form form1 = Application.OpenForms["Form1"];
             form1.Controls.RemoveByKey("okButton");
-            form1.Controls.RemoveByKey("ggg");
             form1.Controls.RemoveByKey("amount");
             form1.Controls.RemoveByKey("label");
             form1.Controls.RemoveByKey("label2");
