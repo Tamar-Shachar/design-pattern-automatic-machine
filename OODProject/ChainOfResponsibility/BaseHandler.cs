@@ -13,17 +13,19 @@ internal abstract class BaseHandler : IHandler
         }
         else
         {
-            //Application.Restart();
-            Form form1 = Application.OpenForms["Form1"];
-            form1.Controls.RemoveByKey("okButton");
-            form1.Controls.RemoveByKey("amount");
-            form1.Controls.RemoveByKey("label");
-            form1.Controls.RemoveByKey("label2");
-            form1.Controls["StartShoppingBtn"].Show();
+            Application.Restart();
+            /*Form form1 = Application.OpenForms["Form1"];
+            foreach (Control ctrl in form1.Controls)
+            {
+                if (!ctrl.Name.Equals("StartShoppingBtn")
+                    && !ctrl.Name.Equals("Title")) {
+                    form1.Controls.Remove(ctrl);
+                }
+            }
+            form1.Controls["StartShoppingBtn"].Show();*/
             return null;
         }
     }
-
     public IHandler SetNext(IHandler handler)
     {
         this.nextHandler = handler;

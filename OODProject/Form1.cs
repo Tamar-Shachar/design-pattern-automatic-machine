@@ -18,12 +18,13 @@ public partial class Form1 : Form
         SuplierB suplierB = new SuplierB();
         Orange.Attach(suplierB);
 
+
         /* End of day:
           TaskSchedulerA.Instance.ScheduleTask(00, 00, 00,
              () => { ReportTxtSaver.WriteReport(); });*/
         /*TaskSchedulerA.Instance.ScheduleTask(DateTime.Now.Hour, DateTime.Now.Second + 1, 00,
             () => { ReportTxtSaver.WriteReport(); });*/
-        TaskSchedulerA.Instance.ScheduleTask(00,14,30,
+        TaskSchedulerA.Instance.ScheduleTask(01,38,00,
             () => { reportTxtSaver.WriteReport(); });
     }
     ReportTxtSaver reportTxtSaver = new ReportTxtSaver();
@@ -35,10 +36,7 @@ public partial class Form1 : Form
     Button snack = new Button();
     Button drink = new Button();
     Button pay = new Button();
-   public Label label2 = new Label();
-  public  Label label = new Label();
-    Button okButton = new Button();
-    TextBox amount = new TextBox();
+    
     private void StartShoppingBtn_Click(object sender, EventArgs e)
     {
         machine = new AutomaticMachine();

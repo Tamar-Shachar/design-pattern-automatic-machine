@@ -9,36 +9,35 @@ internal class Payment : BaseHandler
     {
         double price = ((Product)item).GetPrice();
         Form form1 = Application.OpenForms["Form1"];
-        //Label label = form1.Controls["lable"].;
-        form1.Controls["lable"].Text = $"The amount to be paid is: {price}₪";
-        form1.Controls["lable"].Size = new Size(800, 50);
-        form1.Controls["lable"].Location = new Point(420, 128);
-        form1.Controls["lable"].Font = new Font("Arial", 16, FontStyle.Bold);
-        form1.Controls["lable"].Show();
-         //form1.Controls.Add(label);
-
-
-         amount.PlaceholderText = "Enter amount";
+        Label label = new Label();
+        label.Text = $"The amount to be paid is: {price}₪";
+        label.Size = new Size(800, 50);
+        label.Location = new Point(420, 128);
+        label.Font = new Font("Arial", 16, FontStyle.Bold);
+        form1.Controls.Add(label);
+        TextBox amount = new TextBox();
+        amount.PlaceholderText = "Enter amount";
         amount.Size = new Size(200, 100);
         amount.Location = new Point(460, 200);
         amount.Font = new Font("Arial", 12);
         form1.Controls.Add(amount);
         form1.ActiveControl = null;
 
-        
+        Button okButton = new Button();
         okButton.Text = "OK";
         okButton.Size = new Size(100, 30);
         okButton.Location = new Point(670, 200);
         form1.Controls.Add(okButton);
-        
+        Label label2 = new Label();
         okButton.Click += async (sender, e) =>
         {
             label2.Size = new Size(800, 50);
             label2.Location = new Point(420, 280);
             label2.Font = new Font("Arial", 12);
             int y;
-            var x = Int32.TryParse(amount.Text,out y);
-            if ( x == true && price <= y)
+            var x = Int32.TryParse(amount.Text, out y);
+            form1.Controls.Add(label2);
+            if (x == true && price <= y)
             {
                 label2.Text = $"surplus: {(Int32.Parse(amount.Text)) - price}₪";
                 label2.ForeColor = System.Drawing.Color.Black;
@@ -46,6 +45,15 @@ internal class Payment : BaseHandler
                 label.Enabled = false;
                 amount.Enabled = false;
                 okButton.Enabled = false;
+
+                /*form1.Controls.Remove(okButton);
+                form1.Controls.Remove(label);
+                form1.Controls.Remove(amount);
+                form1.Controls.Remove(label2);*/
+
+                /*MessageBox.Show($"surplus: {(Int32.Parse(amount.Text)) - price}₪"
+                 , "Surplus", MessageBoxButtons.OKCancel, MessageBoxIcon.Asterisk);
+               */
                 mre.Set();
             }
             else
@@ -55,7 +63,7 @@ internal class Payment : BaseHandler
                 label2.ForeColor = System.Drawing.Color.Red;
                 form1.Controls.Add(label2);
             }
-            
+
         };
 
         await Task.Run(() =>
@@ -64,7 +72,7 @@ internal class Payment : BaseHandler
             mre.Reset();
 
         });
-        
+
         return base.Handel(item).Result;
 
     }

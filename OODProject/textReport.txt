@@ -1,0 +1,20 @@
+R e p o r t :
+
+	21/05/2023 01:28:00
+01:27:  Soda GiftWarp
+01:27:  Chips GiftWarp Bag
+01:27:  HotCup Coffee Sugar HotWatter Milk GiftWarp
+01:27:  HotCup Shoko HotWatter Milk Bag
+01:27:  Orange GiftWarp
+
+	21/05/2023 01:38:00
+01:28:  HotCup HotWatter Sugar Tea GiftWarp
+01:30:  HotCup Shoko Tea GiftWarp
+01:30:  Chips Bag
+01:30:  Soda GiftWarp
+01:30:  HotCup Tea Sugar GiftWarp
+01:30:  Chips Bag
+01:30:  Cola GiftWarp
+01:31:  HotCup Milk Tea HotWatter Sugar GiftWarp
+01:33:  Soda GiftWarp
+01:37:  HotCup Shoko Sugar HotWatter Milk Bag
