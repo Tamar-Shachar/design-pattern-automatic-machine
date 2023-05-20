@@ -19,13 +19,11 @@ public partial class Form1 : Form
         Orange.Attach(suplierB);
 
 
-        /* End of day:
+        /* End of day:*/
           TaskSchedulerA.Instance.ScheduleTask(00, 00, 00,
-             () => { ReportTxtSaver.WriteReport(); });*/
+             () => { reportTxtSaver.WriteReport(); });
         /*TaskSchedulerA.Instance.ScheduleTask(DateTime.Now.Hour, DateTime.Now.Second + 1, 00,
-            () => { ReportTxtSaver.WriteReport(); });*/
-        TaskSchedulerA.Instance.ScheduleTask(01,38,00,
-            () => { reportTxtSaver.WriteReport(); });
+            () => { reportTxtSaver.WriteReport(); });*/
     }
     ReportTxtSaver reportTxtSaver = new ReportTxtSaver();
     AutomaticMachine machine;
