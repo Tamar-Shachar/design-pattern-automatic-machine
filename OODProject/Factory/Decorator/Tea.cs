@@ -1,4 +1,4 @@
-﻿namespace OODProject.Builder.Decorator;
+﻿namespace OODProject.Decorator;
 internal class Tea : Ingredient
 {
     public Tea(HotDrink wrappee) : base(wrappee)

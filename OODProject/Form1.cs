@@ -1,4 +1,4 @@
-using OODProject.Builder.Decorator;
+using OODProject.Decorator;
 using OODProject.Factory;
 using OODProject.Observer;
 using OODProject.Singleton;
@@ -17,8 +17,7 @@ public partial class Form1 : Form
         Bisli.Attach(suplierA);
         SuplierB suplierB = new SuplierB();
         Orange.Attach(suplierB);
-        bag_cb.Hide();
-        warp_cb.Hide();
+       
 
 
         /* End of day:
@@ -26,7 +25,7 @@ public partial class Form1 : Form
              () => { ReportTxtSaver.WriteReport(); });*/
         /*TaskSchedulerA.Instance.ScheduleTask(DateTime.Now.Hour, DateTime.Now.Second + 1, 00,
             () => { ReportTxtSaver.WriteReport(); });*/
-        TaskSchedulerA.Instance.ScheduleTask(00,55,00,
+        TaskSchedulerA.Instance.ScheduleTask(23,19,30,
             () => { ReportTxtSaver.WriteReport(); });
     }
 
@@ -43,8 +42,9 @@ public partial class Form1 : Form
     Button pay = new Button();
     private void StartShoppingBtn_Click(object sender, EventArgs e)
     {
-        machine = AutomaticMachine.GetInstance();
+        machine = new AutomaticMachine();
         Shop();
+        
     }
     private void Shop()
     {
@@ -55,7 +55,7 @@ public partial class Form1 : Form
         #region create buttons
 
         this.Controls.Add(snack);
-        snack.Text = "snack";
+        snack.Text = "Snack\nChoose snack that you like:";
         snack.Location = new Point(672, 160);
         snack.Size = new Size(200, 70);
         snack.Click += (sender, e) =>
@@ -79,7 +79,7 @@ public partial class Form1 : Form
 
 
         this.Controls.Add(drink);
-        drink.Text = "Drink";
+        drink.Text = "Drink\nChoose your favorite drink:";
         drink.Location = new Point(232, 160);
         drink.Size = new Size(200, 70);
         drink.Click += (sender, e) =>
@@ -96,17 +96,19 @@ public partial class Form1 : Form
             {
                 this.Controls[item].Enabled = false;
             }
+           
             drink.Enabled = false;
             snack.Enabled = true;
             hotDrink.Enabled = true;
         };
 
         this.Controls.Add(hotDrink);
-        hotDrink.Text = "Hot Drink";
+        hotDrink.Text = "Hot Drink\nPrepare you hot cup:";
         hotDrink.Location = new Point(452, 160);
         hotDrink.Size = new Size(200, 70);
         hotDrink.Click += (sender, e) =>
         {
+            
             foreach (string item in drinkArr)
             {
                 this.Controls[item].Enabled = false;
@@ -119,9 +121,11 @@ public partial class Form1 : Form
             {
                 this.Controls[item].Enabled = true;
             }
+            
             drink.Enabled = true;
             snack.Enabled = true;
             hotDrink.Enabled = false;
+            
             ingredients.RemoveRange(0, ingredients.Count);
         };
 

@@ -1,4 +1,4 @@
-﻿using OODProject.Builder.Decorator;
+﻿using OODProject.Decorator;
 using OODProject.ChainOfResponsibility;
 using OODProject.Factory;
 
@@ -6,23 +6,26 @@ namespace OODProject.Singleton;
 
 internal class AutomaticMachine
 {
-    private AutomaticMachine()
-    {
 
-    }
-    private static AutomaticMachine instance;
-    static object locker = new();
-    public static AutomaticMachine GetInstance()
-    {
-        if (instance == null)
-        {
-            lock (locker)
-            {
-                instance = new AutomaticMachine();
-            }
-        }
-        return instance;
-    }
+    #region singleton
+    //private AutomaticMachine()
+    //{
+
+    //}
+    //private static AutomaticMachine instance;
+    //static object locker = new();
+    //public static AutomaticMachine GetInstance()
+    //{
+    //    if (instance == null)
+    //    {
+    //        lock (locker)
+    //        {
+    //            instance = new AutomaticMachine();
+    //        }
+    //    }
+    //    return instance;
+    //}
+    #endregion
     public void StartShpping(string type, params string[] products)
     {
         Creator creator = new GetSnack();
@@ -50,5 +53,6 @@ internal class AutomaticMachine
         h3.SetNext(h4);
         h4.SetNext(null);
         h1.Handel(item);
+       
     }
 }

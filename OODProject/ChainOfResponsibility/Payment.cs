@@ -18,8 +18,8 @@ internal class Payment : BaseHandler
 
         TextBox amount = new TextBox();
         amount.PlaceholderText = "Enter amount";
-        amount.Size = new Size(100, 60);
-        amount.Location = new Point(420, 200);
+        amount.Size = new Size(200, 100);
+        amount.Location = new Point(460, 200);
         amount.Font = new Font("Arial", 12);
         form1.Controls.Add(amount);
         form1.ActiveControl = null;
@@ -27,7 +27,7 @@ internal class Payment : BaseHandler
         Button okButton = new Button();
         okButton.Text = "OK";
         okButton.Size = new Size(100, 30);
-        okButton.Location = new Point(530, 200);
+        okButton.Location = new Point(670, 200);
         form1.Controls.Add(okButton);
         Label label2 = new Label();
         okButton.Click += async (sender, e) =>
@@ -35,9 +35,12 @@ internal class Payment : BaseHandler
             label2.Size = new Size(800, 50);
             label2.Location = new Point(420, 280);
             label2.Font = new Font("Arial", 12);
-            if (price <= (Int32.Parse(amount.Text)))
+            int y;
+            var x = Int32.TryParse(amount.Text,out y);
+            if ( x == true && price <= y)
             {
                 label2.Text = $"surplus: {(Int32.Parse(amount.Text)) - price}₪";
+                label2.ForeColor = System.Drawing.Color.Black;
                 form1.Controls.Add(label2);
                 label.Enabled = false;
                 amount.Enabled = false;
@@ -48,6 +51,7 @@ internal class Payment : BaseHandler
             {
                 label2.Text = "The money is not enough, please enter again";
                 amount.Text = "";
+                label2.ForeColor = System.Drawing.Color.Red;
                 form1.Controls.Add(label2);
             }
         };
@@ -60,6 +64,7 @@ internal class Payment : BaseHandler
         });
         
         return base.Handel(item).Result;
+
     }
 
 }

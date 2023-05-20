@@ -1,6 +1,6 @@
 ﻿using OODProject.Observer;
 
-namespace OODProject.Builder.Decorator;
+namespace OODProject.Decorator;
 
 internal class HotCup : HotDrink
 {

@@ -7,12 +7,13 @@ internal abstract class BaseHandler : IHandler
     private IHandler nextHandler;
     public virtual Task<IItem> Handel(IItem item)
     {
-        if (this.Handel != null)
+        if ( this.nextHandler != null)
         {
             return this.nextHandler.Handel(item);
         }
         else
         {
+            Application.Restart();
             return null;
         }
     }

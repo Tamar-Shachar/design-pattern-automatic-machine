@@ -12,6 +12,6 @@ internal abstract class ReportSaver
             $"item: {item.ToString()}.\n";
         Debug.WriteLine(Report);
     }
-    public static void WriteReport() { }
+    public abstract void WriteReport();
     
 }

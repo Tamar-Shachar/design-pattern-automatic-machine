@@ -1,4 +1,4 @@
-﻿namespace OODProject.Builder.Decorator;
+﻿namespace OODProject.Decorator;
 
 internal abstract class Ingredient : HotDrink
 {

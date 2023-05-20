@@ -30,8 +30,6 @@ partial class Form1
     {
             this.Title = new System.Windows.Forms.Label();
             this.StartShoppingBtn = new System.Windows.Forms.Button();
-            this.bag_cb = new System.Windows.Forms.CheckBox();
-            this.warp_cb = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Title
@@ -40,51 +38,31 @@ partial class Form1
             this.Title.BackColor = System.Drawing.Color.LightCoral;
             this.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Title.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Title.Location = new System.Drawing.Point(459, 26);
+            this.Title.Location = new System.Drawing.Point(525, 35);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(195, 30);
+            this.Title.Size = new System.Drawing.Size(247, 37);
             this.Title.TabIndex = 0;
             this.Title.Text = "Automatic Machine";
             // 
             // StartShoppingBtn
             // 
-            this.StartShoppingBtn.Location = new System.Drawing.Point(452, 82);
+            this.StartShoppingBtn.Location = new System.Drawing.Point(525, 113);
+            this.StartShoppingBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.StartShoppingBtn.Name = "StartShoppingBtn";
-            this.StartShoppingBtn.Size = new System.Drawing.Size(202, 70);
+            this.StartShoppingBtn.Size = new System.Drawing.Size(247, 93);
             this.StartShoppingBtn.TabIndex = 1;
             this.StartShoppingBtn.Text = "start shopping";
             this.StartShoppingBtn.UseVisualStyleBackColor = true;
             this.StartShoppingBtn.Click += new System.EventHandler(this.StartShoppingBtn_Click);
             // 
-            // bag_cb
-            // 
-            this.bag_cb.AutoSize = true;
-            this.bag_cb.Location = new System.Drawing.Point(459, 686);
-            this.bag_cb.Name = "bag_cb";
-            this.bag_cb.Size = new System.Drawing.Size(81, 19);
-            this.bag_cb.TabIndex = 2;
-            this.bag_cb.Text = "I want bag";
-            this.bag_cb.UseVisualStyleBackColor = true;
-            // 
-            // warp_cb
-            // 
-            this.warp_cb.AutoSize = true;
-            this.warp_cb.Location = new System.Drawing.Point(570, 686);
-            this.warp_cb.Name = "warp_cb";
-            this.warp_cb.Size = new System.Drawing.Size(108, 19);
-            this.warp_cb.TabIndex = 3;
-            this.warp_cb.Text = "I want gift warp";
-            this.warp_cb.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 800);
-            this.Controls.Add(this.warp_cb);
-            this.Controls.Add(this.bag_cb);
+            this.ClientSize = new System.Drawing.Size(1403, 1055);
             this.Controls.Add(this.StartShoppingBtn);
             this.Controls.Add(this.Title);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -96,6 +74,4 @@ partial class Form1
 
     private Label Title;
     private Button StartShoppingBtn;
-    private CheckBox bag_cb;
-    private CheckBox warp_cb;
 }

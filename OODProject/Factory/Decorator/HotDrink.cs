@@ -1,6 +1,6 @@
 ﻿using OODProject.Factory;
 
-namespace OODProject.Builder.Decorator;
+namespace OODProject.Decorator;
 
 internal abstract class HotDrink : Product
 {

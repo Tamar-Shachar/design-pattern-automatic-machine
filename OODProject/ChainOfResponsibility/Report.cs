@@ -8,13 +8,9 @@ internal class Report : BaseHandler
    
     public override async Task<IItem> Handel(IItem item)
     {
-        Form form1 = Application.OpenForms["Form1"];
-        Label label = new Label();
-        label.Text = item.ToString();
-        label.Location = new Point(700, 400);
-        label.Width = 3000;
-        form1.Controls.Add(label);  
+        MessageBox.Show(item.ToString(), "The items that you buy",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
         ReportTxtSaver.AddReport(item);
-        return null;
+        return base.Handel(item) == null? null : base.Handel(item).Result;
     }
 }
