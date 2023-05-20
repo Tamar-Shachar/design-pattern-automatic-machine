@@ -6,7 +6,7 @@ namespace OODProject.TamplateMethod;
 internal abstract class ReportSaver
 {
     protected static string Report = "";
-    public static void AddReport(IItem item)
+    public void AddReport(IItem item)
     {
         Report +=
             $"item: {item.ToString()}.\n";

@@ -54,6 +54,7 @@ internal class Payment : BaseHandler
                 label2.ForeColor = System.Drawing.Color.Red;
                 form1.Controls.Add(label2);
             }
+            
         };
 
         await Task.Run(() =>

@@ -17,21 +17,16 @@ public partial class Form1 : Form
         Bisli.Attach(suplierA);
         SuplierB suplierB = new SuplierB();
         Orange.Attach(suplierB);
-       
-
 
         /* End of day:
           TaskSchedulerA.Instance.ScheduleTask(00, 00, 00,
              () => { ReportTxtSaver.WriteReport(); });*/
         /*TaskSchedulerA.Instance.ScheduleTask(DateTime.Now.Hour, DateTime.Now.Second + 1, 00,
             () => { ReportTxtSaver.WriteReport(); });*/
-        TaskSchedulerA.Instance.ScheduleTask(23,19,30,
-            () => { ReportTxtSaver.WriteReport(); });
+        TaskSchedulerA.Instance.ScheduleTask(00,14,30,
+            () => { reportTxtSaver.WriteReport(); });
     }
-
-
-
-
+    ReportTxtSaver reportTxtSaver = new ReportTxtSaver();
     AutomaticMachine machine;
     string[] snackArr = { nameof(Bisli), nameof(Chips), nameof(Bamba) };
     string[] hotDrinkArr = { nameof(Coffee), nameof(Shoko), nameof(Tea), nameof(Sugar), nameof(HotWatter), nameof(Milk) };
@@ -51,7 +46,8 @@ public partial class Form1 : Form
         string type = "";
         string product = "";
         List<string> ingredients = new List<string>();
-        this.Controls.Remove(StartShoppingBtn);
+        //this.Controls.Remove(StartShoppingBtn);
+        StartShoppingBtn.Hide();
         #region create buttons
 
         this.Controls.Add(snack);
