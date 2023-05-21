@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace OODProject.TamplateMethod;
+﻿namespace OODProject.TamplateMethod;
 
 internal class ReportTxtSaver : ReportSaver
 {

@@ -30,10 +30,13 @@ internal class Bamba : Snack
     }
     public static void Notify()
     {
-        foreach (var suplier in supliers)
+        if (amount < Product.minAmount)
         {
-            suplier.Update(typeof(Bamba));
+            foreach (var suplier in supliers)
+            {
+                suplier.Update(typeof(Bamba));
+            }
         }
     }
-    
+
 }

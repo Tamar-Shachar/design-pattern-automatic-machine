@@ -1,5 +1,4 @@
 ﻿using OODProject.Observer;
-using System.Diagnostics;
 
 namespace OODProject.TamplateMethod;
 
@@ -8,7 +7,7 @@ internal abstract class ReportSaver
     static string PATH = "..\\..\\..\\tempReport.txt";
     public void AddReport(IItem item)
     {
-        File.AppendAllText(PATH,$"{TimeOnly.FromDateTime(DateTime.Now)}: {item.ToString()}\n");
+        File.AppendAllText(PATH, $"{TimeOnly.FromDateTime(DateTime.Now)}: {item.ToString()}\n");
     }
 
     public string GetTempReport()
@@ -18,5 +17,5 @@ internal abstract class ReportSaver
         return rep;
     }
     public abstract void WriteReport();
-    
+
 }

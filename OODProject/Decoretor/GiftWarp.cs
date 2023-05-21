@@ -5,7 +5,7 @@ namespace OODProject.Decoretor;
 internal class GiftWarp : Additions
 {
     private static int amount;
-    public GiftWarp(IItem item):base(item)
+    public GiftWarp(IItem item) : base(item)
     {
         amount -= 1;
     }

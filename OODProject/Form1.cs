@@ -18,7 +18,6 @@ public partial class Form1 : Form
         SuplierB suplierB = new SuplierB();
         Orange.Attach(suplierB);
 
-
         /* End of day:*/
           TaskSchedulerA.Instance.ScheduleTask(00, 00, 00,
              () => { reportTxtSaver.WriteReport(); });

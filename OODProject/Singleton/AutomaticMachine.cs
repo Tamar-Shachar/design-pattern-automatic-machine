@@ -1,6 +1,7 @@
 ﻿using OODProject.Decorator;
 using OODProject.ChainOfResponsibility;
 using OODProject.Factory;
+using OODProject.TamplateMethod;
 
 namespace OODProject.Singleton;
 
@@ -26,7 +27,22 @@ internal class AutomaticMachine
     //    return instance;
     //}
     #endregion
-    public void StartShpping(string type, params string[] products)
+    Payment h1;
+    Warp h2;
+    Packing h3;
+    Report h4;
+    public AutomaticMachine()
+    {
+        h1 = new Payment();
+        h2 = new Warp();
+        h3 = new Packing();
+        h4 = new Report(new ReportTxtSaver());
+        h1.SetNext(h2);
+        h2.SetNext(h3);
+        h3.SetNext(h4);
+        h4.SetNext(null);
+    }
+    public async void StartShpping(string type, params string[] products)
     {
         Creator creator = new GetSnack();
         switch (type)
@@ -44,15 +60,7 @@ internal class AutomaticMachine
                 break;
         }
         var item = creator.GetProduct(products);
-        Payment h1 = new Payment();
-        Warp h2 = new Warp();
-        Packing h3 = new Packing();
-        Report h4 = new Report();
-        h1.SetNext(h2);
-        h2.SetNext(h3);
-        h3.SetNext(h4);
-        h4.SetNext(null);
-        h1.Handel(item);
-       
+        await h1.Handel(item);
+        Application.Restart();
     }
 }

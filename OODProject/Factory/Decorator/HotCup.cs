@@ -1,4 +1,5 @@
-﻿using OODProject.Observer;
+﻿using OODProject.Factory;
+using OODProject.Observer;
 
 namespace OODProject.Decorator;
 
@@ -26,9 +27,12 @@ internal class HotCup : HotDrink
     }
     public static void Notify()
     {
-        foreach (var suplier in supliers)
+        if (amount < Product.minAmount)
         {
-            suplier.Update(typeof(HotCup));
+            foreach (var suplier in supliers)
+            {
+                suplier.Update(typeof(HotCup));
+            }
         }
     }
     public override string ToString()

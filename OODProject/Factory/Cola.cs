@@ -30,9 +30,12 @@ internal class Cola : Drink
     }
     public static void Notify()
     {
-        foreach (var suplier in supliers)
+        if (amount < Product.minAmount)
         {
-            suplier.Update(typeof(Cola));
+            foreach (var suplier in supliers)
+            {
+                suplier.Update(typeof(Cola));
+            }
         }
 
     }

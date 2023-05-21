@@ -5,7 +5,7 @@ namespace OODProject.Factory
     internal class Orange : Drink
     {
         readonly static double price = 8;
-        static int amount =5;
+        static int amount = 5;
         static List<ISuplier> supliers = new List<ISuplier>();
         public Orange()
         {
@@ -33,9 +33,12 @@ namespace OODProject.Factory
         }
         public static void Notify()
         {
-            foreach (var suplier in supliers)
+            if (amount < Product.minAmount)
             {
-                suplier.Update(typeof(Orange));
+                foreach (var suplier in supliers)
+                {
+                    suplier.Update(typeof(Orange));
+                }
             }
         }
     }

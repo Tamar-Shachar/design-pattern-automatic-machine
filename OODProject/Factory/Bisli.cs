@@ -5,7 +5,7 @@ namespace OODProject.Factory;
 internal class Bisli : Snack
 {
     readonly static double price = 4.5;
-    static int amount=5;
+    static int amount = 5;
     static List<ISuplier> supliers = new List<ISuplier>();
     private string name;
 
@@ -32,10 +32,14 @@ internal class Bisli : Snack
     }
     public static void Notify()
     {
-        foreach (var suplier in supliers)
+        if (amount < Product.minAmount)
         {
-            suplier.Update(typeof(Bisli));
+            foreach (var suplier in supliers)
+            {
+                suplier.Update(typeof(Bisli));
+            }
         }
+
     }
 
 

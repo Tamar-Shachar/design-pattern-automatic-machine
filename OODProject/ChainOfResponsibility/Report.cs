@@ -5,13 +5,17 @@ namespace OODProject.ChainOfResponsibility;
 
 internal class Report : BaseHandler
 {
-    ReportTxtSaver reportTxtSaver = new ReportTxtSaver();
+    ReportSaver reportSaver;
+
+    public Report(ReportSaver reportSaver)
+    {
+        this.reportSaver = reportSaver;
+    }
     public override async Task<IItem> Handel(IItem item)
     {
-          
         MessageBox.Show(item.ToString(), "The items that you buy",
             MessageBoxButtons.OK, MessageBoxIcon.Information);
-        reportTxtSaver.AddReport(item);
-        return base.Handel(item) == null? null : base.Handel(item).Result;
+        reportSaver.AddReport(item);
+        return base.Handel(item) == null ? null : base.Handel(item).Result;
     }
 }

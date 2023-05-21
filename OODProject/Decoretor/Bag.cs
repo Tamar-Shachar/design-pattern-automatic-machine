@@ -5,7 +5,7 @@ namespace OODProject.Decoretor;
 internal class Bag : Additions
 {
     private static int amount;
-    public Bag(IItem item):base(item)
+    public Bag(IItem item) : base(item)
     {
         amount -= 1;
     }
